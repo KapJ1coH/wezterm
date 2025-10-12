@@ -43,33 +43,52 @@ config.audible_bell = "Disabled"
 
 config.window_decorations = "RESIZE"
 
+
+-- trying to fix nvim's <C-S-Left/right> not being detected
+config.enable_csi_u_key_encoding = true
+
 -- Keybindings
 config.keys = {
-  -- Copy/Paste (no Shift circus)
-  { key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
-  { key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+    -- Copy/Paste (no Shift circus)
+    { key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
+    { key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
 
-  -- Fullscreen
-  { key = "F11", mods = "NONE", action = act.ToggleFullScreen },
+    -- Fullscreen
+    { key = "F11", mods = "NONE", action = act.ToggleFullScreen },
 
-  -- Splits
-  { key = "D", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-  { key = "D", mods = "CTRL|ALT",   action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    -- Splits
+    { key = "D", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "D", mods = "CTRL|ALT",   action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
-  -- Tabs
-  { key = "T", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
-  { key = "N", mods = "CTRL|SHIFT", action = act.SpawnWindow },
+    -- Tabs
+    { key = "T", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
+    { key = "N", mods = "CTRL|SHIFT", action = act.SpawnWindow },
 
-  -- Tab switching with Ctrl+Arrow
-  { key = "RightArrow", mods = "CTRL", action = act.ActivateTabRelative(1) },
-  { key = "LeftArrow",  mods = "CTRL", action = act.ActivateTabRelative(-1) },
+    -- Tab switching with Ctrl+Arrow
+    { key = "RightArrow", mods = "CTRL", action = act.ActivateTabRelative(1) },
+    { key = "LeftArrow",  mods = "CTRL", action = act.ActivateTabRelative(-1) },
 
-  -- Quick spawns
-  { key = "U", mods = "CTRL|SHIFT", action = act.SpawnCommandInNewTab({ args = { "nu", "-l" } }) },
-  { key = "B", mods = "CTRL|SHIFT", action = act.SpawnCommandInNewTab({ args = { "/usr/bin/bash", "-l" } }) },
+    -- Quick spawns
+    { key = "U", mods = "CTRL|SHIFT", action = act.SpawnCommandInNewTab({ args = { "nu", "-l" } }) },
+    { key = "B", mods = "CTRL|SHIFT", action = act.SpawnCommandInNewTab({ args = { "/usr/bin/bash", "-l" } }) },
 
-  -- Launcher for when you forget the shortcuts
-  { key = "L", mods = "CTRL|SHIFT", action = act.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
+    -- Launcher for when you forget the shortcuts
+    { key = "L", mods = "CTRL|SHIFT", action = act.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
+
+    -- vim specific
+    {
+        key = "RightArrow",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "LeftArrow",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+
+
+
 }
 
 return config
