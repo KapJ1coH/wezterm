@@ -41,7 +41,7 @@ config.max_fps = 120
 
 config.audible_bell = "Disabled"
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 
 
 -- trying to fix nvim's <C-S-Left/right> not being detected
