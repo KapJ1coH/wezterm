@@ -15,7 +15,7 @@ config.launch_menu = {
   { label = "Bash (login)",    args = { "/usr/bin/bash", "-l" } },
 }
 
-config.window_background_opacity = 80
+config.window_background_opacity = 90
 
 config.use_fancy_tab_bar = true
 
@@ -33,7 +33,7 @@ config.font_size = 12
 
 -- Colors & transparency
 config.color_scheme = "Catppuccin Mocha"
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.95
 config.text_background_opacity = 0.8
 config.window_close_confirmation = 'NeverPrompt'
 config.max_fps = 120
