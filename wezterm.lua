@@ -5,6 +5,11 @@ local act = wezterm.action
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- Fixing eGPU issues on Wayland
+-- enable_wayland to false seems to break it more causing the editor to be opaque
+-- config.enable_wayland = false
+-- config.prefer_egl = false
+
 -- This is where you actually apply your config choices.
 
 config.default_prog = { "nu", "-l" }
